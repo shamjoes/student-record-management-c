@@ -19,4 +19,6 @@ void save_records(struct student *);
 void sort_list(struct student **);
 void delete_all(struct student **);
 void reverse_list(struct student **);
-
+void Exit(struct student *);
+void load_file(struct student **);
+int count_node(struct student *);

@@ -15,7 +15,7 @@ void show_list(struct student *SLL)
 	printf("***********************************\n");
 	while(temp)
 	{
-		printf("%d %s %f\n",temp->rollno,temp->name,temp->percentage);
+		printf("%d %s %.2f\n",temp->rollno,temp->name,temp->percentage);
 		temp=temp->next;
 	}
 	printf("***********************************\n");

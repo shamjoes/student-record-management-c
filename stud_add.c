@@ -34,9 +34,14 @@ void add_record(struct student **SLL)
         
 
         new->rollno=roll;
-	printf("Enter naPercentage\n");
+	printf("Enter name and percentage\n");
 	scanf("%s %f",new->name,&new->percentage);
-
+	if(new->percentage < 0.0f || new->percentage > 100.0f)
+	{
+		printf("Invalid percentage. Enter between 0.00 and 100.00\n");
+		free(new);
+		return;
+	}
 
 	new->next=0;
 	if(*SLL==0)

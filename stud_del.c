@@ -52,7 +52,7 @@ switch(op)
 	case 'N':
 	case 'n':
 		printf("Enter Name\n");
-		scanf("%s",nam);
+		scanf(" %s",nam);
 		while(del)
 		{
 			if((strcmp(del->name,nam))==0)
@@ -60,8 +60,9 @@ switch(op)
 				curr=del;
 				c++;
 				curr=curr->next;
-				del=del->next;
+				
 			}
+                del=del->next;
 		}
 		if(c>1)
 		{  
@@ -69,7 +70,7 @@ switch(op)
                         struct student *curr=*SLL;
 			while(curr)
 			{
-				printf("%d %s %f\n",curr->rollno,curr->name,curr->percentage);
+				printf("%d %s %.2f\n",curr->rollno,curr->name,curr->percentage);
 				curr=curr->next;
 			}
 			int no;
@@ -81,7 +82,7 @@ switch(op)
 				{
 					if(rol==*SLL)
 					{
-						*SLL=rol-next;
+						*SLL=rol->next;
 					}
 					else
 					{
@@ -89,7 +90,7 @@ switch(op)
 					}
 					free(rol);
                                         printf("Record deleted\n");
-					return;
+					break;
 				}
 				prev=rol;
 				rol=rol->next;
@@ -114,7 +115,7 @@ switch(op)
 					}
 					free(sin);
 					printf("Record deleted\n");
-					return;
+					break;
 				}
 				prev=sin;
 				sin=sin->next;         

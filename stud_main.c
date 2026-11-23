@@ -45,7 +45,7 @@ void reverse_list(struct student **SLL)
 		printf("Not found\n");
 		return;
 	}
-	if(SLL->next==0)
+	if((*SLL)->next==0)
 	{
 		printf("List reversed\n");
 		return;
@@ -98,65 +98,75 @@ void sort_list(struct student **SLL)
 		case 'N':
 		case 'n':
 
-			struct student *temp1=*SLL,*temp2;
-                        struct student  t;
+			struct student *temp1,*temp2;
+			struct student  t;
 			for(i=0;i<c;i++)
 			{
-				temp2=temp1->next;
-				for(j=0;j<c-1-i;j++)
-				{
-					if((strcmp(temp1->name,temp2->name))>0)
+				temp2=*SLL;
+					for(j=0;j<c-1-i;j++)
 					{
-						t.rollno=temp1->rollno;
-						strcpy(t.name,temp1->name);
-						t.percentage=temp1->percentage;
+						if(temp1==0 || temp1->next==0)
+						{
+							break;
+						}
+						temp2=temp1->next;
+						if((strcmp(temp1->name,temp2->name))>0)
+						{
+							t.rollno=temp1->rollno;
+							strcpy(t.name,temp1->name);
+							t.percentage=temp1->percentage;
 
-						temp1->rollno=temp2->rollno;
-						strcpy(temp1->name,temp2->name);
-						temp1->percentage=temp2->percentage;
+							temp1->rollno=temp2->rollno;
+							strcpy(temp1->name,temp2->name);
+							temp1->percentage=temp2->percentage;
 
-						temp2->rollno=t.rollno;
-						strcpy(temp2->name,t.name);
-						temp2->percentage=t.percentage;
+							temp2->rollno=t.rollno;
+							strcpy(temp2->name,t.name);
+							temp2->percentage=t.percentage;
 
-						temp2=temp2->next;
+							temp2=temp2->next;
+						}
+						temp1=temp1->next;
 					}
-					temp1=temp1->next;
-				}
 				printf("Records sorted\n");
 			}
 			break;
 
 		case 'P':
 		case 'p':
-			struct student *temp1=*SLL,*temp2;
-                        struct student t;
+			struct student *tem1,*tem2;
+			struct student p;
 			for(i=0;i<c;i++)
 			{
-				temp2=temp1->next;
+				tem1=*SLL;
 				for(j=0;j<c-1-i;j++)
 				{
-					if(temp1->percentage < temp2->percentage)
+					if(tem1==0 || tem1->next==0)
 					{
-						t.rollno=temp1->rollno;
-						strcpy(t.name,temp1->name);
-						t.percentage=temp1->percentage;
-
-						temp1->rollno=temp2->rollno;
-						strcpy(temp1->name,temp2->name);
-						temp1->percentage=temp2->percentage;
-
-						temp2->rollno=t.rollno;
-						strcpy(temp2->name,t.name);
-						temp2->percentage=t.percentage;
-
-						temp2=temp2->next;
+						break;
 					}
-					temp1=temp1->next;
+					tem2=tem1->next;
+
+					if(tem1->percentage < tem2->percentage)
+					{
+						p.rollno=tem1->rollno;
+						strcpy(p.name,tem1->name);
+						p.percentage=tem1->percentage;
+
+						tem1->rollno=tem2->rollno;
+						strcpy(tem1->name,tem2->name);
+						tem1->percentage=tem2->percentage;
+
+						tem2->rollno=p.rollno;
+						strcpy(tem2->name,p.name);
+						tem2->percentage=p.percentage;
+                                                
+					}
+					tem1=tem1->next;
 				}
+                           }
 				printf("Records sorted\n");
-			}
-			break;
+		 		break;
 
 		default:printf("Invalid option\n");break;
 	}
@@ -174,6 +184,7 @@ void Exit(struct student *SLL)
 		case 's':
 			save_records(SLL);
 			struct student *temp=SLL;
+                      
 			while(temp)
 			{
 				struct student *next=temp->next;
@@ -185,12 +196,12 @@ void Exit(struct student *SLL)
 
 		case 'E':
 		case 'e':
-			struct student *temp=SLL;
-			while(temp)
+			struct student *tem=SLL;
+			while(tem)
 			{
-				struct student *next=temp->next;
-				free(temp);
-				temp=next;
+				struct student *next=tem->next;
+				free(tem);
+				tem=next;
 			}
 			printf("Exit without Saving\n");
 			exit(0);
@@ -244,13 +255,6 @@ void load_file(struct student **SLL)
         fclose(fp);
 }
 
-
-
-
-
-
-
-}
 void delete_all(struct student **SLL)
 {
 	if(*SLL==0)

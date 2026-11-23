@@ -18,7 +18,7 @@ void save_records(struct student *SLL)
 
 	while(temp)
 	{
-		fprintf(fp,"%d %s %f\n",temp->rollno,temp->name,temp->percentage);
+		fprintf(fp,"%d %s %.2f\n",temp->rollno,temp->name,temp->percentage);
 		temp=temp->next;
 	}
 	fclose(fp);

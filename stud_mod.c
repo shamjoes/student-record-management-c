@@ -29,25 +29,27 @@ void modify_list(struct student **SLL)
 			{
 				if(new->rollno==rol)
 				{
+					printf("**************************\n");
 					printf("Current Details\n");
-					printf("%d %s %.2f\n",new->rollno,new->name,new->percentage);
+					printf(YELLOW "%d" RST " %s " GREEN "%.2f" "\n",new->rollno,new->name,new->percentage);
 					printf("**************************\n");
 
+					printf(BOLD CYAN "Update name and Percentage"RST "\n");
 					scanf("%s %f",new->name,&new->percentage);
 
 					if(new->percentage < 0.0f || new->percentage > 100.0f)
 					{
-						printf("Invalid percentage. Enter between 0.00 and 100.00\n");
+						printf(BOLD RED "Invalid percentage. Enter between 0.00 and 100.00"RST "\n");
 						free(new);
 						return;
 					}
-					printf("Record Updated\n");
+					printf(BOLD GREEN "Record Updated"RST "\n");
 					break;
 				}
 				new=new->next;
 			}
 			if(new==0)
-				printf("rollno not found\n");
+				printf(BOLD RED "rollno not found"RST "\n");
 
 			break;
 
@@ -55,7 +57,7 @@ void modify_list(struct student **SLL)
 		case 'n':
 			char nam[20];
 			int u=0;
-			printf("Enter name\n");
+			printf(BOLD CYAN "Enter name"RST "\n");
 			scanf("%s",nam);
 			struct student *tem=*SLL;
 			struct student *cur=*SLL;
@@ -76,32 +78,33 @@ void modify_list(struct student **SLL)
 				while(cu)
 				{
 					if((strcmp(cu->name,nam))==0)
-						printf("%d %s %.2f\n",cu->rollno,cu->name,cu->percentage);
+						printf(YELLOW "%d" RST " %s " GREEN "%.2f" RST "\n",cu->rollno,cu->name,cu->percentage);
 					cu=cu->next;
 				}
 				printf("\n");
 				int no;
-				printf("Enter your rollno\n");
+				printf(BOLD CYAN "Enter your rollno"RST "\n");
 				scanf("%d",&no);
 				struct student *t=*SLL;
 				while(t)
 				{
 					if(t->rollno==no)
 					{
-						printf("Current Details\n");
-						printf("%d %s %f\n",t->rollno,t->name,t->percentage);
 						printf("**************************\n");
-						printf("Update name and Percentage\n");
+						printf("Current Details\n");
+						printf(YELLOW "%d" RST " %s " GREEN "%.2f" RST "\n",t->rollno,t->name,t->percentage);
+						printf("**************************\n");
+						printf(BOLD CYAN"Update name and Percentage"RST "\n");
 
 
 						scanf("%s %f",t->name,&t->percentage);
 
 						if(t->percentage < 0.0f || t->percentage > 100.0f)
 						{
-							printf("Invalid percentage. Enter between 0.00 and 100.00\n");
+							printf(BOLD RED "Invalid percentage. Enter between 0.00 and 100.00"RST "\n");
 							return;
 						}
-						printf("Record Updated\n");
+						printf(BOLD GREEN "Record Updated"RST "\n");
 						break;
 					}
 					t=t->next;
@@ -115,19 +118,20 @@ void modify_list(struct student **SLL)
 				{
 					if((strcmp(l->name,nam))==0)
 					{
-						printf("Current Details\n");
-						printf("%d %s %.2f\n",l->rollno,l->name,l->percentage);
 						printf("**************************\n");
-						printf("Update name and Percentage\n");
+						printf("Current Details\n");
+						printf(YELLOW "%d" RST " %s " GREEN "%.2f" RST "\n",l->rollno,l->name,l->percentage);
+						printf("**************************\n");
+						printf(BOLD CYAN "Update name and Percentage"RST "\n");
 
 						scanf("%s %f",l->name,&l->percentage);
 
 						if(l->percentage < 0.0f || l->percentage > 100.0f)
 						{
-							printf("Invalid percentage. Enter between 0.00 and 100.0\n");
+							printf(BOLD RED "Invalid percentage. Enter between 0.00 and 100.0"RST "\n");
 							return;
 						}
-						printf("Record Updated\n");
+						printf(BOLD GREEN "Record Updated"RST "\n");
 						break;
 					}
 					l=l->next;
@@ -138,14 +142,14 @@ void modify_list(struct student **SLL)
 			{
 
 
-				printf("Name not found\n");
+				printf(BOLD RED "Name not found"RST "\n");
 			}
 			break;
 		case 'P':
 		case 'p':
 			float fp;
 			int c=0;
-			printf("Enter percentage\n");
+			printf(BOLD CYAN "Enter percentage"RST "\n");
 			scanf("%f",&fp);
 
 			struct student *temp=*SLL;
@@ -167,31 +171,32 @@ void modify_list(struct student **SLL)
 				while(curr)
 				{
 					if(curr->percentage==fp)
-						printf("%d %s %.2f\n",curr->rollno,curr->name,curr->percentage);
+						printf(YELLOW "%d" RST " %s " GREEN "%.2f" RST "\n",curr->rollno,curr->name,curr->percentage);
 					curr=curr->next;
 				}
 				printf("\n");
 				int no;
-				printf("Enter your rollno\n");
+				printf(BOLD CYAN "Enter your rollno"RST "\n");
 				scanf("%d",&no);
 				struct student *temp=*SLL;
 				while(temp)
 				{
 					if(temp->rollno==no)
 					{
-						printf("Current Details\n");
-						printf("%d %s %f\n",temp->rollno,temp->name,temp->percentage);
 						printf("**************************\n");
-						printf("Update name and Percentage\n");
+						printf("Current Details\n");
+						printf(YELLOW "%d" RST " %s " GREEN "%.2f" RST "\n",temp->rollno,temp->name,temp->percentage);
+						printf("**************************\n");
+						printf(BOLD CYAN "Update name and Percentage"RST "\n");
 
 						scanf("%s %f",temp->name,&temp->percentage);
 
 						if(temp->percentage < 0.0f || temp->percentage > 100.0f)
 						{
-							printf("Invalid percentage. Enter between 0.00 and 100.00\n");
+							printf(BOLD RED "Invalid percentage. Enter between 0.00 and 100.00"RST "\n");
 							return;
 						}
-						printf("Record Updated\n");
+						printf(BOLD GREEN "Record Updated"RST "\n");
 						break;
 					}
 					temp=temp->next;
@@ -205,19 +210,20 @@ void modify_list(struct student **SLL)
 				{
 					if(temp->percentage==fp)
 					{
-						printf("Current Details\n");
-						printf("%d %s %.2f\n",temp->rollno,temp->name,temp->percentage);
 						printf("**************************\n");
-						printf("Update name and Percentage\n");
+						printf("Current Details\n");
+						printf(YELLOW "%d" RST " %s " GREEN "%.2f" RST "\n",temp->rollno,temp->name,temp->percentage);
+						printf("**************************\n");
+						printf(BOLD CYAN "Update name and Percentage"RST "\n");
 
 						scanf("%s %f",temp->name,&temp->percentage);
 
 						if(temp->percentage < 0.0f || temp->percentage > 100.0f)
 						{
-							printf("Invalid percentage. Enter between 0.00 and 100.00\n");
+							printf(BOLD RED"Invalid percentage. Enter between 0.00 and 100.00"RST "\n");
 							return;
 						}
-						printf("Record Updated\n");
+						printf(BOLD GREEN "Record Updated"RST "\n");
 						break;
 					}
 					temp=temp->next;
@@ -225,9 +231,9 @@ void modify_list(struct student **SLL)
 			}
 			else
 			{
-				printf("Percentage not found\n");
+				printf(BOLD RED "Percentage not found"RST "\n");
 			}
 			break;
-		default:printf("Invalid option\n");break;
+		default:printf(BOLD RED "Invalid option"RST "\n");break;
 	}
 }

@@ -20,6 +20,7 @@ int main()
                      BOLD GREEN "l/L" RST " : Delete all the records\n"
                      BOLD GREEN "r/R" RST " : Reverse the list\n"
                      ); 
+                printf(BOLD CYAN"*********************************"RST "\n");
 		printf("Enter your choice:\n");
 		scanf(" %c",&op);
 		switch(op)
@@ -42,7 +43,7 @@ int main()
 			case 'L':delete_all(&head);break;
 			case 'r':
 			case 'R':reverse_list(&head);break;
-			default:printf("Inavlid choice. Please try again.\n");break;
+			default:printf(BOLD RED"Invalid choice. Please try again."RST "\n");break;
 		}
 	}
 }
@@ -52,12 +53,12 @@ void reverse_list(struct student **SLL)
 {
 	if(*SLL==0)
 	{
-		printf("Not found\n");
+		printf(BOLD RED "Record not found"RST "\n");
 		return;
 	}
 	if((*SLL)->next==0)
 	{
-		printf("List reversed\n");
+		printf(BOLD GREEN "List reversed successfully"RST "\n");
 		return;
 	}
 	struct student *curr=*SLL;       
@@ -72,14 +73,14 @@ void reverse_list(struct student **SLL)
 		curr=temp;
 	}
 	*SLL=prev;
-		printf("List reversed\n");
+		printf(BOLD GREEN "List reversed successfully"RST "\n");
 }
 
 int count_node(struct student *SLL)
 {
 	if(SLL==0)
 	{
-		printf("Not found\n");
+		printf(BOLD RED "Record not found"RST "\n");
 		return 0;
 	}
 	int c=0;
@@ -96,12 +97,12 @@ void sort_list(struct student **SLL)
 {
 	if(*SLL==0)
 	{
-		printf("Record not found\n");
+		printf(BOLD RED "Record not found"RST "\n");
 		return;
 	}
 	char op;
 	int i,j,c=count_node(*SLL);
-	printf("N/n : sort with name\nP/p : sort with percentage\n");
+	printf(BOLD GREEN "N/n" RST ": sort with name\n"BOLD GREEN "P/p" RST ": sort with percentage\n");
 	scanf(" %c",&op);
 	switch(op)
 	{
@@ -140,7 +141,7 @@ void sort_list(struct student **SLL)
 					}
 			}
                         
-				printf("Records sorted\n");
+				printf(BOLD GREEN "Records sorted successfully"RST "\n");
 			break;
 
 		case 'P':
@@ -176,10 +177,10 @@ void sort_list(struct student **SLL)
 					tem1=tem1->next;
 				}
                            }
-				printf("Records sorted\n");
+				printf(BOLD GREEN "Records sorted successfully"RST "\n");
 		 		break;
 
-		default:printf("Invalid option\n");break;
+		default:printf(BOLD RED "Invalid option"RST "\n");break;
 	}
 }
 
@@ -187,22 +188,25 @@ void sort_list(struct student **SLL)
 void Exit(struct student *SLL)
 {
 	char op;
-	printf("S/s : Save and exit\nE/e : Exit without saving\n");
+	printf(BOLD GREEN "S/s" RST " : Save and exit\n"BOLD GREEN "E/e" RST ": Exit without saving\n");
 	scanf(" %c",&op);
 	switch(op)
 	{
 		case 'S':
 		case 's':
 			save_records(SLL);
+                        
 			struct student *temp=SLL;
-                      
+                        int p=0;
 			while(temp)
 			{
 				struct student *next=temp->next;
 				free(temp);
 				temp=next;
+                                p++;
 			}
-			printf("Records Saved\n");
+                        if(p>=1)
+			printf(BOLD GREEN "Records Saved"RST "\n");
 			exit(0);
 
 		case 'E':
@@ -214,10 +218,10 @@ void Exit(struct student *SLL)
 				free(tem);
 				tem=next;
 			}
-			printf("Exit without Saving\n");
+			printf(BOLD RED "Exit without Saving"RST "\n");
 			exit(0);
 
-		default:printf("Invalid option\n");break;
+		default:printf(BOLD RED "Invalid option"RST "\n");break;
 	}
 }
 
@@ -270,7 +274,7 @@ void delete_all(struct student **SLL)
 {
 	if(*SLL==0)
 	{
-		printf("No records found\n");
+		printf(BOLD RED "Records not found"RST "\n");
 		return;
 	}
 
@@ -283,7 +287,7 @@ void delete_all(struct student **SLL)
 		del=*SLL;
 	}
 	*SLL=NULL;
-	printf("All Records Deleted Successfully\n");
+	printf(BOLD GREEN "All Records Deleted Successfully"RST "\n");
 }
 
 

@@ -5,13 +5,13 @@ void modify_list(struct student **SLL)
 
 	if(*SLL==0)
 	{
-		printf("No records found\n");
+		printf(BOLD RED"No records found"RST "\n");
 		return;
 	}
 
 	char op;
-	printf("Enter which record to search for modification\n");
-	printf("R/r : Search by roll number\nN/n : Search by name\nP/p : Search by percentage\n");
+	printf(BOLD CYAN"Enter which record to search for modification"RST "\n");
+	printf(BOLD GREEN "R/r" RST " : Search by roll number\n" BOLD GREEN "N/n" RST " : Search by name\n"BOLD GREEN "P/p" RST " : Search by percentage\n");
 	scanf(" %c",&op);
 
 
@@ -21,7 +21,7 @@ void modify_list(struct student **SLL)
 		case 'R':
 		case 'r':
 			int rol;
-			printf("Enter roll number\n");
+			printf(BOLD CYAN"Enter roll number"RST "\n");
 			scanf("%d",&rol);
 
 			struct student *new=*SLL;
@@ -66,8 +66,9 @@ void modify_list(struct student **SLL)
 					cur=tem;
 					u++;
 					cur=cur->next;
-					tem=tem->next;
+					
 				}
+                        tem=tem->next;
 			}
 			if(u>1)
 			{
@@ -98,7 +99,6 @@ void modify_list(struct student **SLL)
 						if(t->percentage < 0.0f || t->percentage > 100.0f)
 						{
 							printf("Invalid percentage. Enter between 0.00 and 100.00\n");
-							free(t);
 							return;
 						}
 						printf("Record Updated\n");
@@ -124,8 +124,7 @@ void modify_list(struct student **SLL)
 
 						if(l->percentage < 0.0f || l->percentage > 100.0f)
 						{
-							printf("Invalid percentage. Enter between 0.00 and 100.00\n");
-							free(l);
+							printf("Invalid percentage. Enter between 0.00 and 100.0\n");
 							return;
 						}
 						printf("Record Updated\n");
@@ -158,8 +157,9 @@ void modify_list(struct student **SLL)
 					curr=temp;
 					c++;
 					curr=curr->next;
-					temp=temp->next;
+					
 				}
+                        temp=temp->next;
 			}
 			if(c>1)
 			{ 
@@ -189,7 +189,6 @@ void modify_list(struct student **SLL)
 						if(temp->percentage < 0.0f || temp->percentage > 100.0f)
 						{
 							printf("Invalid percentage. Enter between 0.00 and 100.00\n");
-							free(temp);
 							return;
 						}
 						printf("Record Updated\n");
@@ -216,7 +215,6 @@ void modify_list(struct student **SLL)
 						if(temp->percentage < 0.0f || temp->percentage > 100.0f)
 						{
 							printf("Invalid percentage. Enter between 0.00 and 100.00\n");
-							free(temp);
 							return;
 						}
 						printf("Record Updated\n");

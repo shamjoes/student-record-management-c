@@ -8,8 +8,18 @@ int main()
 	load_file(&head);
 	while(1)
 	{
-		printf("****** STUDENT RECORD MENU ******\n");
-		printf("a/A : Add new record\nd/D : Delete a record\ns/S : Show the list\nm/M : Modify a record\nv/V : Save records\ne/E : Exit\nt/T : Sort the list\nl/L : Delete all the records\nr/R : Reverse the list\n");
+		printf(BOLD CYAN"****** STUDENT RECORD MENU ******\n"RST);
+		printf(
+                     BOLD GREEN "a/A" RST " : Add new record\n"
+                     BOLD GREEN "d/D" RST " : Delete a record\n"
+                     BOLD GREEN "s/S" RST " : Show the list\n"
+                     BOLD GREEN "m/M" RST " : Modify a record\n"
+                     BOLD GREEN "v/V" RST " : Save records\n"
+                     BOLD GREEN "e/E" RST " : Exit\n"
+                     BOLD GREEN "t/T" RST " : Sort the list\n"
+                     BOLD GREEN "l/L" RST " : Delete all the records\n"
+                     BOLD GREEN "r/R" RST " : Reverse the list\n"
+                     ); 
 		printf("Enter your choice:\n");
 		scanf(" %c",&op);
 		switch(op)
@@ -102,7 +112,7 @@ void sort_list(struct student **SLL)
 			struct student  t;
 			for(i=0;i<c;i++)
 			{
-				temp2=*SLL;
+				temp1=*SLL;
 					for(j=0;j<c-1-i;j++)
 					{
 						if(temp1==0 || temp1->next==0)
@@ -128,8 +138,9 @@ void sort_list(struct student **SLL)
 						}
 						temp1=temp1->next;
 					}
-				printf("Records sorted\n");
 			}
+                        
+				printf("Records sorted\n");
 			break;
 
 		case 'P':

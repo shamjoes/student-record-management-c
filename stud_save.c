@@ -3,15 +3,14 @@
 
 void save_records(struct student *SLL)
 {
-	if(SLL=0)
+	if(SLL==0)
 	{
-		printf("Records Not found\n");
+		printf(BOLD RED"Records Not found"RST "\n");
 		return;
 	}
 	FILE *fp=fopen("student.dat","w");
 	if(fp==0)
 	{
-		printf("Not found\n");
 		return;
 	}
 	struct student *temp=SLL;
@@ -21,6 +20,7 @@ void save_records(struct student *SLL)
 		fprintf(fp,"%d %s %.2f\n",temp->rollno,temp->name,temp->percentage);
 		temp=temp->next;
 	}
+        printf(BOLD GREEN"Records Saved Successfully"RST "\n");
 	fclose(fp);
 
 }

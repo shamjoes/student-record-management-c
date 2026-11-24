@@ -8,7 +8,7 @@ void add_record(struct student **SLL)
 	new=malloc(sizeof(struct student));
         if(new==0)
         {
-        printf("Memory not allocated\n"); 
+        printf(BOLD RED "Memory not allocated"RST" \n"); 
         return;
         }
 
@@ -34,11 +34,11 @@ void add_record(struct student **SLL)
         
 
         new->rollno=roll;
-	printf("Enter name and percentage\n");
+	printf(BOLD UND CYAN "Enter name and percentage"RST"\n");
 	scanf("%s %f",new->name,&new->percentage);
 	if(new->percentage < 0.0f || new->percentage > 100.0f)
 	{
-		printf("Invalid percentage. Enter between 0.00 and 100.00\n");
+		printf(BOLD RED "Invalid percentage. Enter between 0.00 and 100.00"RST "\n");
 		free(new);
 		return;
 	}

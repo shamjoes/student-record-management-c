@@ -7,7 +7,7 @@ void show_list(struct student *SLL)
 
 	if(temp==0)
 	{
-		printf("No student records available\n");
+		printf(BOLD RED "No student records available"RST" \n");
 		return;
 	}
 	printf("***********************************\n");
@@ -15,7 +15,7 @@ void show_list(struct student *SLL)
 	printf("***********************************\n");
 	while(temp)
 	{
-		printf("%d %s %.2f\n",temp->rollno,temp->name,temp->percentage);
+		printf(YELLOW "%d" RST " %s " GREEN "%.2f" RST "\n" ,temp->rollno,temp->name,temp->percentage);
 		temp=temp->next;
 	}
 	printf("***********************************\n");

@@ -4,27 +4,30 @@
 void delete_record(struct student **SLL)
 {
 
-if(*SLL==0)
-{
-printf("Records Not found\n");
-return;
-}
-int c=0;
-char op;
-printf("R/r : Enter roll number to delete\nN/n : Enter name to delete\n");
-scanf(" %c",&op);
-int num;
-char nam[20];
-struct student *del=*SLL;
-struct student *sin=*SLL;
-struct student *curr=*SLL;
-struct student *prev=0;
+	if(*SLL==0)
+	{
+		printf(BOLD RED "Records Not found"RST "\n");
+		return;
+	}
+	int c=0;
+	char op;
+	printf(
+			BOLD GREEN "R/r" RST " : Enter roll number to delete\n"
+			BOLD GREEN "N/n" RST " : Enter name to delete\n"
+	      );
+	scanf(" %c",&op);
+	int num;
+	char nam[20];
+	struct student *del=*SLL;
+	struct student *sin=*SLL;
+	struct student *curr=*SLL;
+	struct student *prev=0;
 
-switch(op)
+	switch(op)
 {
 	case 'R':
 	case 'r':
-		printf("Enter roll number\n");
+		printf(BOLD CYAN "Enter roll number"RST "\n");
 		scanf("%d",&num);
 		while(del)
 		{
@@ -39,19 +42,19 @@ switch(op)
 					prev->next=del->next;
 				}
 				free(del);
-				printf("Record deleted\n");
+				printf(BOLD GREEN"Record deleted"RST "\n");
 				return;
 			}
 			prev=del;
 				del=del->next;         
 	        }
                 if(del==0)
-                printf("Your record not found\n");
+                printf(BOLD RED "Your record not found"RST "\n");
 		break;
 
 	case 'N':
 	case 'n':
-		printf("Enter Name\n");
+		printf(BOLD CYAN"Enter Name"RST "\n");
 		scanf(" %s",nam);
 		while(del)
 		{
@@ -70,11 +73,11 @@ switch(op)
                         struct student *curr=*SLL;
 			while(curr)
 			{
-				printf("%d %s %.2f\n",curr->rollno,curr->name,curr->percentage);
+				printf(YELLOW "%d" RST " %s " GREEN "%.2f" RST "\n",curr->rollno,curr->name,curr->percentage);
 				curr=curr->next;
 			}
 			int no;
-			printf("Enter roll number to delete your record:\n");
+			printf(BOLD CYAN"Enter roll number to delete your record"RST "\n");
 			scanf("%d",&no);
 			while(rol)
 			{
@@ -89,14 +92,14 @@ switch(op)
 						prev->next=rol->next;
 					}
 					free(rol);
-                                        printf("Record deleted\n");
+                                        printf(BOLD GREEN"Record deleted"RST "\n");
 					break;
 				}
 				prev=rol;
 				rol=rol->next;
 			}
                         if(rol==0)
-                        printf("record not found\n");
+                        printf(BOLD RED"record not found"RST "\n");
 		}           
 
 		else if(c==1)
@@ -114,7 +117,7 @@ switch(op)
 						prev->next=sin->next;
 					}
 					free(sin);
-					printf("Record deleted\n");
+					printf(BOLD GREEN"Record deleted"RST "\n");
 					break;
 				}
 				prev=sin;
@@ -122,8 +125,8 @@ switch(op)
 			}
 		}
 		if(c==0)
-			printf("Records not found\n");
+			printf(BOLD RED"Records not found"RST "\n");
 		break;
-	default:printf("Invalid option\n");break;
+	default:printf(BOLD RED"Invalid option"RST "\n");break;
 }
 }

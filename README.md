@@ -72,8 +72,12 @@ Project Structure
 2.  Run
    ./student.
 
-3.  clean make:
-    rm -f *.o 
+4.  clean make:
+
+    rm -f *.o
+
+    
 ------Thank you------:
 
 
+:w

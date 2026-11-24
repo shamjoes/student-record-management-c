@@ -1,4 +1,4 @@
-F' > README.md
+README.md
 # Student Record Management System in C
 
 A modular, command-line **Student Record Management System** written in C. Built around dynamic **Singly Linked Lists (SLL)**, persistent binary/text file storage, and a color-coded **ANSI terminal interface**.

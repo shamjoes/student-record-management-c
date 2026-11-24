@@ -69,15 +69,13 @@ Project Structure
    ```bash
    make
 
-2.  Run
+2.  Run : 
    ./student.
 
-4.  clean make:
-
+4.  clean make : 
     rm -f *.o
 
     
 ------Thank you------:
-
 
 :w

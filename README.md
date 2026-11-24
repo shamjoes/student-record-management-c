@@ -31,16 +31,16 @@ A modular, command-line **Student Record Management System** written in C. Built
 
 ## Build & Run
 
-1. **Compile the project:**
+1. Compile the project:
    ```bash
    makecat << 'EOF' > README.md
-# Student Record Management System in C
+Student Record Management System in C
 
-A modular, command-line **Student Record Management System** written in C. Built around dynamic **Singly Linked Lists (SLL)**, persistent binary/text file storage, and a color-coded **ANSI terminal interface**.
+A modular, command-line Student Record Management System written in C. Built around dynamic Singly Linked Lists (SLL), persistent binary/text file storage, and a color-coded ANSI terminal interface.
 
----
 
-## Features
+
+Features
 
 - **Record Management (CRUD):** Add new student records, display formatted student tables, modify existing entries by roll number or name, and delete individual, duplicate-name, or all records with proper heap memory cleanup (`free`).
 - **Linked List Operations:** Sort student records, reverse the singly linked list in place, and search records dynamically.
@@ -49,7 +49,7 @@ A modular, command-line **Student Record Management System** written in C. Built
 
 ---
 
-## Project Structure
+Project Structure
 
 | File | Description |
 | :--- | :--- |
@@ -62,18 +62,18 @@ A modular, command-line **Student Record Management System** written in C. Built
 | `stud_save.c` | File I/O routines (`fscanf` / `fprintf`) for persisting records to `student.dat` |
 | `Makefile` | Automated compilation with `gcc -Wall -Wextra` |
 
----
 
-## Build & Run
+---Build & Run---
 
-1. **Compile the project:**
+1. Compile the project:
    ```bash
    make
 
-2.  **RUn
+2.  Run
    ./student.
 
-
+3.  clean make:
+    rm -f *.o 
 ------Thank you------:
 
 

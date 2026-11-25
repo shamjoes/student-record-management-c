@@ -74,6 +74,7 @@ void modify_list(struct student **SLL)
 			}
 			if(u>1)
 			{
+                                printf(BOLD CYAN "Current Details"RST "\n");
 				struct student *cu=*SLL;
 				while(cu)
 				{

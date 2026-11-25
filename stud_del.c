@@ -70,12 +70,14 @@ void delete_record(struct student **SLL)
 		if(c>1)
 		{  
 			struct student *rol=*SLL; 
-                        struct student *curr=*SLL;
-			while(curr)
-			{
-				printf(YELLOW "%d" RST " %s " GREEN "%.2f" RST "\n",curr->rollno,curr->name,curr->percentage);
-				curr=curr->next;
-			}
+                        printf(BOLD CYAN "Current Details"RST "\n");
+				struct student *cu=*SLL;
+				while(cu)
+				{
+					if((strcmp(cu->name,nam))==0)
+						printf(YELLOW "%d" RST " %s " GREEN "%.2f" RST "\n",cu->rollno,cu->name,cu->percentage);
+					cu=cu->next;
+				}
 			int no;
 			printf(BOLD CYAN"Enter roll number to delete your record"RST "\n");
 			scanf("%d",&no);

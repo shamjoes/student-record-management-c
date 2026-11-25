@@ -15,18 +15,18 @@ void add_record(struct student **SLL)
 	int roll=1;
 	while(1)
 	{
-		int found=0;
+		int flag=0;
 		struct student *temp=*SLL;
 		while(temp)
 		{
 			if(temp->rollno==roll)
 			{
-				found=1;
+				flag=1;
 				break;
 			}
 			temp=temp->next;
 		}
-		if(!found)
+		if(!flag)
 			break;
 
 		roll++;
